@@ -1,0 +1,75 @@
+TSP Benchmark Summary
+============================================================
+
+   n  Algorithm           Avg Cost   Avg Ratio   Avg Time(ms)
+------------------------------------------------------------
+    5  BruteForce            2565.3      1.0000         0.0531
+    5  Christofides          2652.3      1.0329         0.5578
+    5  HeldKarp              2565.3      1.0000         0.0617
+    5  NN_MultiStart         2565.3      1.0000         0.0312
+    5  NearestNeigh          2590.3      1.0119         0.0102
+
+    6  BruteForce            2022.3      1.0000         0.2578
+    6  Christofides          2125.3      1.0477         0.2852
+    6  HeldKarp              2022.3      1.0000         0.1633
+    6  NN_MultiStart         2111.0      1.0417         0.0454
+    6  NearestNeigh          2136.0      1.0542         0.0111
+
+    7  BruteForce            2411.3      1.0000         0.8569
+    7  Christofides          2517.0      1.0394         0.1747
+    7  HeldKarp              2411.3      1.0000         0.2185
+    7  NN_MultiStart         2411.3      1.0000         0.0373
+    7  NearestNeigh          2473.7      1.0269         0.0073
+
+    8  BruteForce            2396.7      1.0000         6.1744
+    8  Christofides          2524.3      1.0493         0.3226
+    8  HeldKarp              2396.7      1.0000         0.5501
+    8  NN_MultiStart         2414.0      1.0080         0.0494
+    8  NearestNeigh          2414.0      1.0080         0.0093
+
+    9  BruteForce            2842.0      1.0000        53.2554
+    9  Christofides          2986.0      1.0496         0.2643
+    9  HeldKarp              2842.0      1.0000         1.3850
+    9  NN_MultiStart         3032.7      1.0744         0.0659
+    9  NearestNeigh          3231.0      1.1377         0.0135
+
+   10  BruteForce            2561.3      1.0000       508.6908
+   10  Christofides          2639.7      1.0287         0.3245
+   10  HeldKarp              2561.3      1.0000         3.2330
+   10  NN_MultiStart         2625.3      1.0235         0.0841
+   10  NearestNeigh          2674.7      1.0420         0.0134
+
+   12  Christofides          3441.3      1.1675         0.5179
+   12  HeldKarp              2945.7      1.0000        18.9849
+   12  NN_MultiStart         3060.7      1.0402         0.1296
+   12  NearestNeigh          3303.7      1.1214         0.0220
+
+   15  Christofides          3773.0      1.1077         0.6916
+   15  HeldKarp              3406.7      1.0000       233.4778
+   15  NN_MultiStart         3528.0      1.0359         0.2230
+   15  NearestNeigh          3786.0      1.1114         0.0318
+
+   20  Christofides          4344.3      1.0817         1.1762
+   20  HeldKarp              4008.3      1.0000     13899.7555
+   20  NN_MultiStart         4138.0      1.0320         0.4787
+   20  NearestNeigh          4551.7      1.1340         0.0451
+
+   25  Christofides          5226.0         N/A         1.9838
+   25  NN_MultiStart         5072.3         N/A         0.8587
+   25  NearestNeigh          5542.7         N/A         0.0375
+
+   30  Christofides          5182.7         N/A         2.3306
+   30  NN_MultiStart         5042.7         N/A         1.3884
+   30  NearestNeigh          5483.0         N/A         0.0505
+
+   50  Christofides          6295.0         N/A         7.2489
+   50  NN_MultiStart         6272.7         N/A         5.7283
+   50  NearestNeigh          6566.0         N/A         0.1205
+
+   75  Christofides          7426.7         N/A        13.8760
+   75  NN_MultiStart         7327.7         N/A        18.2190
+   75  NearestNeigh          8290.0         N/A         0.2402
+
+  100  Christofides          8883.0         N/A        30.7000
+  100  NN_MultiStart         9004.3         N/A        42.0831
+  100  NearestNeigh          9723.3         N/A         0.4364
