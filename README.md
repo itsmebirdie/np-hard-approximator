@@ -2,19 +2,16 @@
 
 > A DAA Course Project
 
----
 
 ## What This Project Is About
 
 We're building a system that tackles two classic NP-hard problems — **Travelling Salesman Problem (TSP)** and **Set Cover** and analyzes how exact algorithms compare against approximation algorithms. The core idea is simple: exact solutions work fine for small inputs, but become computationally infeasible as input size grows. Approximation algorithms trade a bit of optimality for massive gains in speed. We implement both, measure both, and rigorously compare them.
 
----
 
 ## Project Structure
 
 > to be updated
 
----
 
 ## Algorithms We're Implementing
 
@@ -28,7 +25,6 @@ We're building a system that tackles two classic NP-hard problems — **Travelli
 |---|---|---|---|
 | TBA | TBA | TBA | TBA |
 
----
 
 ### Set Cover
 
@@ -41,7 +37,6 @@ We're building a system that tackles two classic NP-hard problems — **Travelli
 | TBA | TBA | TBA | TBA |
 
 
----
 
 ## How to Compute Approximation Ratio
 
@@ -56,7 +51,6 @@ Approximation Ratio = (Cost of Approximate Solution) / (Cost of Optimal Solution
 - For TSP Nearest Neighbor, you'll typically see ratios between 1.1 and 1.4 on random instances.  
 - For Greedy Set Cover, the theoretical upper bound is `ln(n) + 1`, but in practice it's usually much better.
 
----
 
 ## Tech Stack
 
@@ -119,12 +113,8 @@ def tsp_dp(dist):
     return min_cost, [0] + path + [0]
 ```
 
----
-
 ## Quick Reference: Approximation Ratios
 
 | Algorithm | Problem | Theoretical Bound | Typical Observed |
 |---|---|---|---|
 | TBA | TBA | TBA | TBA |
-
----
