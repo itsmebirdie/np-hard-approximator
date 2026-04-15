@@ -2,7 +2,6 @@ import random
 import math
 import os
 
-
 #  Distance Matrix Generators
 
 def random_symmetric_matrix(n, low=1, high=100, seed=None):
