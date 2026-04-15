@@ -2,6 +2,10 @@
 
 > A DAA Course Project
 
+Maanas Nair \
+Liza Borah \
+Nisha Ahlawat
+
 ⚠️ THESE BENCHMARKS WERE TESTED ON A SPECIFIC HARDWARE DESCRIBED BELOW \
 Intel i7-14700HX \
 RTX5060 8GB \
