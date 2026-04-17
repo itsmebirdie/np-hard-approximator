@@ -1,6 +1,6 @@
 import itertools
 import time
-from tsp_utils import tour_cost, validate_tour
+from .tsp_utils import tour_cost, validate_tour
 
 
 def tsp_brute_force(dist):
@@ -25,7 +25,7 @@ def tsp_brute_force(dist):
         cost = dist[0][1] + dist[1][0]
         return cost, [0, 1, 0]
 
-    cities = list(range(1, n))  # fix city 0 as start, permute the rest
+    cities = list(range(1, n))  # fix city 0 as start; permute the rest
     min_cost = float("inf")
     best_tour = None
 
@@ -39,7 +39,10 @@ def tsp_brute_force(dist):
     return min_cost, best_tour
 
 
+# ─────────────────────────────────────────────
 #  Timed wrapper (used by benchmark.py)
+# ─────────────────────────────────────────────
+
 def run(dist):
     """
     Run brute force TSP and return (cost, tour, elapsed_ms).
@@ -50,7 +53,10 @@ def run(dist):
     return cost, tour, elapsed
 
 
+# ─────────────────────────────────────────────
 #  Quick self-test
+# ─────────────────────────────────────────────
+
 if __name__ == "__main__":
     from tsp_utils import print_matrix, print_result
 

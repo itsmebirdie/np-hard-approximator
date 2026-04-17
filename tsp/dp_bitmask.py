@@ -1,5 +1,5 @@
 import time
-from tsp_utils import tour_cost, validate_tour
+from .tsp_utils import tour_cost, validate_tour
 
 
 def tsp_dp(dist):
@@ -33,13 +33,13 @@ def tsp_dp(dist):
     dp = [[INF] * n for _ in range(SIZE)]
     parent = [[-1] * n for _ in range(SIZE)]
 
-    # base case: start at city 0, only city 0 visited
+    # Base case: start at city 0, only city 0 visited
     dp[1][0] = 0  # mask=1 means bit 0 is set (city 0 visited), cost 0
 
-    # fill DP table
-    # iterate over all possible subsets of cities
+    # Fill DP table
+    # Iterate over all possible subsets of cities
     for mask in range(1, SIZE):
-        # only process masks that include city 0 (bit 0 must be set)
+        # Only process masks that include city 0 (bit 0 must be set)
         if not (mask & 1):
             continue
 
@@ -50,7 +50,7 @@ def tsp_dp(dist):
             if dp[mask][u] == INF:
                 continue
 
-            # try extending the tour to every unvisited city v
+            # Try extending the tour to every unvisited city v
             for v in range(n):
                 if mask >> v & 1:
                     continue  # v already visited
@@ -62,7 +62,7 @@ def tsp_dp(dist):
                     dp[new_mask][v] = new_cost
                     parent[new_mask][v] = u
 
-    # all cities visited — find the best city to end at before returning to 0
+    # All cities visited — find the best city to end at before returning to 0
     full_mask = SIZE - 1  # all bits set
     min_cost = INF
     last_city = -1
@@ -75,7 +75,7 @@ def tsp_dp(dist):
             min_cost = total
             last_city = u
 
-    # reconstruct the path by backtracking through `parent`
+    # Reconstruct the path by backtracking through `parent`
     tour = _reconstruct_path(parent, full_mask, last_city, n)
 
     return min_cost, tour
@@ -110,7 +110,10 @@ def _reconstruct_path(parent, full_mask, last_city, n):
     return path + [0]
 
 
-#  Timed wrapper - used by benchmark
+# ─────────────────────────────────────────────
+#  Timed wrapper (used by benchmark.py)
+# ─────────────────────────────────────────────
+
 def run(dist):
     """
     Run Held-Karp DP TSP and return (cost, tour, elapsed_ms).
@@ -121,7 +124,10 @@ def run(dist):
     return cost, tour, elapsed
 
 
+# ─────────────────────────────────────────────
 #  Quick self-test
+# ─────────────────────────────────────────────
+
 if __name__ == "__main__":
     from tsp_utils import print_matrix, print_result, random_symmetric_matrix
     from brute_force import tsp_brute_force

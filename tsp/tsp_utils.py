@@ -2,7 +2,10 @@ import random
 import math
 import os
 
+
+# ─────────────────────────────────────────────
 #  Distance Matrix Generators
+# ─────────────────────────────────────────────
 
 def random_symmetric_matrix(n, low=1, high=100, seed=None):
     """
@@ -75,7 +78,9 @@ def random_euclidean_instance(n, width=1000, height=1000, seed=None):
     return coords, dist
 
 
+# ─────────────────────────────────────────────
 #  TSPLIB Parser (EUC_2D format only)
+# ─────────────────────────────────────────────
 
 def parse_tsplib(filepath):
     """
@@ -127,7 +132,9 @@ def parse_tsplib(filepath):
     return name, coords, dist
 
 
+# ─────────────────────────────────────────────
 #  Tour Validator
+# ─────────────────────────────────────────────
 
 def validate_tour(tour, n):
     """
@@ -168,7 +175,9 @@ def tour_cost(tour, dist):
     return sum(dist[tour[i]][tour[i + 1]] for i in range(len(tour) - 1))
 
 
+# ─────────────────────────────────────────────
 #  Display Helpers
+# ─────────────────────────────────────────────
 
 def print_matrix(dist, label="Distance Matrix"):
     n = len(dist)

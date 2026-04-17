@@ -1,5 +1,5 @@
 import time
-from tsp_utils import tour_cost, validate_tour
+from .tsp_utils import tour_cost, validate_tour
 
 try:
     import networkx as nx
@@ -8,7 +8,10 @@ except ImportError:
     NETWORKX_AVAILABLE = False
 
 
+# ─────────────────────────────────────────────
 #  Step 1: Minimum Spanning Tree (Prim's)
+# ─────────────────────────────────────────────
+
 def prim_mst(dist):
     """
     Build a Minimum Spanning Tree using Prim's algorithm.
@@ -49,15 +52,22 @@ def prim_mst(dist):
     return mst_edges, adj
 
 
+# ─────────────────────────────────────────────
 #  Step 2: Find odd-degree vertices in MST
+# ─────────────────────────────────────────────
+
 def find_odd_degree_vertices(adj, n):
     """
     Return list of vertices with odd degree in the MST adjacency list.
     """
     return [v for v in range(n) if len(adj[v]) % 2 == 1]
 
+
+# ─────────────────────────────────────────────
 #  Step 3a: Greedy Minimum Weight Matching
 #           (fallback when networkx not available)
+# ─────────────────────────────────────────────
+
 def greedy_matching(odd_vertices, dist):
     """
     Greedy approximation for minimum weight perfect matching.
@@ -96,7 +106,10 @@ def greedy_matching(odd_vertices, dist):
     return matching
 
 
+# ─────────────────────────────────────────────
 #  Step 3b: True MWPM via NetworkX (if available)
+# ─────────────────────────────────────────────
+
 def networkx_matching(odd_vertices, dist):
     """
     Minimum weight perfect matching using NetworkX's implementation.
@@ -119,7 +132,10 @@ def networkx_matching(odd_vertices, dist):
     return list(matched)
 
 
+# ─────────────────────────────────────────────
 #  Step 4: Build multigraph (MST + matching)
+# ─────────────────────────────────────────────
+
 def build_multigraph(adj, matching, n):
     """
     Combine MST adjacency list with matching edges to form a multigraph.
@@ -135,7 +151,10 @@ def build_multigraph(adj, matching, n):
     return multi_adj
 
 
+# ─────────────────────────────────────────────
 #  Step 5: Eulerian circuit (Hierholzer's algorithm)
+# ─────────────────────────────────────────────
+
 def eulerian_circuit(multi_adj, n, start=0):
     """
     Find an Eulerian circuit in a multigraph using Hierholzer's algorithm.
@@ -168,7 +187,10 @@ def eulerian_circuit(multi_adj, n, start=0):
     return circuit
 
 
+# ─────────────────────────────────────────────
 #  Step 6: Shortcut Eulerian circuit → Hamiltonian tour
+# ─────────────────────────────────────────────
+
 def shortcut_to_hamiltonian(circuit):
     """
     Convert an Eulerian circuit to a Hamiltonian tour by skipping
@@ -192,7 +214,10 @@ def shortcut_to_hamiltonian(circuit):
     return tour
 
 
+# ─────────────────────────────────────────────
 #  Main Christofides function
+# ─────────────────────────────────────────────
+
 def christofides(dist):
     """
     Christofides-style approximation for metric TSP.
@@ -237,7 +262,10 @@ def christofides(dist):
     return cost, tour
 
 
+# ─────────────────────────────────────────────
 #  Timed wrapper (used by benchmark.py)
+# ─────────────────────────────────────────────
+
 def run(dist):
     """
     Run Christofides and return (cost, tour, elapsed_ms).
@@ -248,7 +276,10 @@ def run(dist):
     return cost, tour, elapsed
 
 
+# ─────────────────────────────────────────────
 #  Quick self-test
+# ─────────────────────────────────────────────
+
 if __name__ == "__main__":
     from tsp_utils import print_matrix, print_result, random_euclidean_instance
     from dp_bitmask import tsp_dp

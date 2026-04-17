@@ -1,5 +1,5 @@
 import time
-from tsp_utils import tour_cost, validate_tour
+from .tsp_utils import tour_cost, validate_tour
 
 
 def nearest_neighbor(dist, start=0):
@@ -65,7 +65,7 @@ def nearest_neighbor_multistart(dist):
             best_tour = tour
             best_start = start
 
-    # normalize tour to start at city 0 for consistency with other solvers
+    # Normalize tour to start at city 0 for consistency with other solvers
     best_tour = _normalize_tour(best_tour)
     return best_cost, best_tour, best_start
 
@@ -78,14 +78,17 @@ def _normalize_tour(tour):
     if tour[0] == 0:
         return tour
 
-    # find position of city 0 in the tour (excluding the last element which repeats start)
+    # Find position of city 0 in the tour (excluding the last element which repeats start)
     inner = tour[:-1]  # remove the repeated start at the end
     idx = inner.index(0)
     rotated = inner[idx:] + inner[:idx]
     return rotated + [0]
 
 
+# ─────────────────────────────────────────────
 #  Timed wrappers (used by benchmark.py)
+# ─────────────────────────────────────────────
+
 def run(dist):
     """
     Run single-start Nearest Neighbor (from city 0) and return (cost, tour, elapsed_ms).
@@ -106,7 +109,10 @@ def run_multistart(dist):
     return cost, tour, elapsed
 
 
+# ─────────────────────────────────────────────
 #  Quick self-test
+# ─────────────────────────────────────────────
+
 if __name__ == "__main__":
     from tsp_utils import print_matrix, print_result, random_euclidean_instance
     from dp_bitmask import tsp_dp
