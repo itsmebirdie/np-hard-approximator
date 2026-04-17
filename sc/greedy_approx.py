@@ -1,9 +1,12 @@
 import time
 import math
-from sc_utils import validate_solution
+from .sc_utils import validate_solution
 
 
+# ─────────────────────────────────────────────
 #  Standard Greedy Set Cover
+# ─────────────────────────────────────────────
+
 def greedy_set_cover(universe, subsets):
     """
     Greedy approximation for minimum set cover.
@@ -98,7 +101,10 @@ def greedy_set_cover_with_trace(universe, subsets):
     return len(chosen), chosen, trace
 
 
+# ─────────────────────────────────────────────
 #  Randomized Greedy (tie-breaking variant)
+# ─────────────────────────────────────────────
+
 def greedy_set_cover_randomized(universe, subsets, seed=None):
     """
     Randomized greedy: when multiple subsets tie for maximum coverage,
@@ -140,7 +146,10 @@ def greedy_set_cover_randomized(universe, subsets, seed=None):
     return len(chosen), chosen
 
 
+# ─────────────────────────────────────────────
 #  Approximation Ratio Analysis
+# ─────────────────────────────────────────────
+
 def harmonic_number(n):
     """
     Compute the n-th harmonic number H(n) = 1 + 1/2 + ... + 1/n.
@@ -217,7 +226,10 @@ def print_ratio_analysis(report):
     print()
 
 
+# ─────────────────────────────────────────────
 #  Timed wrappers (used by benchmark.py)
+# ─────────────────────────────────────────────
+
 def run(universe, subsets):
     """
     Run standard greedy and return (size, chosen_indices, elapsed_ms).
@@ -238,7 +250,10 @@ def run_with_trace(universe, subsets):
     return size, chosen, trace, elapsed
 
 
+# ─────────────────────────────────────────────
 #  Quick self-test
+# ─────────────────────────────────────────────
+
 if __name__ == "__main__":
     from sc_utils import (
         small_exact_instance, random_instance,

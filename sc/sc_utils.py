@@ -3,7 +3,10 @@ import json
 import os
 
 
+# ─────────────────────────────────────────────
 #  Instance Generators
+# ─────────────────────────────────────────────
+
 def random_instance(n_elements, n_sets, coverage=0.3, seed=None):
     """
     Generate a random Set Cover instance.
@@ -117,7 +120,10 @@ def small_exact_instance(seed=None):
     return universe, subsets
 
 
+# ─────────────────────────────────────────────
 #  Validators
+# ─────────────────────────────────────────────
+
 def validate_instance(universe, subsets):
     """
     Check that the instance is well-formed and feasible.
@@ -169,7 +175,10 @@ def validate_solution(universe, subsets, chosen_indices):
     return True, f"Valid cover using {len(chosen_indices)} subset(s): indices {sorted(chosen_indices)}"
 
 
+# ─────────────────────────────────────────────
 #  Display Helpers
+# ─────────────────────────────────────────────
+
 def print_instance(universe, subsets, label="Set Cover Instance"):
     n = len(universe)
     m = len(subsets)
@@ -194,7 +203,10 @@ def print_solution(label, chosen_indices, subsets, universe, elapsed_ms):
     print()
 
 
+# ─────────────────────────────────────────────
 #  Serialization (save/load instances as JSON)
+# ─────────────────────────────────────────────
+
 def save_instance(universe, subsets, filepath):
     """Save a Set Cover instance to a JSON file."""
     os.makedirs(os.path.dirname(filepath) or ".", exist_ok=True)

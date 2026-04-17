@@ -1,8 +1,11 @@
 import time
-from sc_utils import validate_solution
+from .sc_utils import validate_solution
 
 
+# ─────────────────────────────────────────────
 #  Core backtracking solver
+# ─────────────────────────────────────────────
+
 def _backtrack(subsets, uncovered, current, best, start_idx, sorted_indices):
     """
     Recursive backtracking to find minimum set cover.
@@ -135,7 +138,10 @@ def _greedy_upper_bound(universe, frozen_subsets):
     return chosen
 
 
+# ─────────────────────────────────────────────
 #  Timed wrapper (used by benchmark.py)
+# ─────────────────────────────────────────────
+
 def run(universe, subsets):
     """
     Run exact backtracking and return (size, chosen_indices, elapsed_ms).
@@ -146,7 +152,10 @@ def run(universe, subsets):
     return size, chosen, elapsed
 
 
+# ─────────────────────────────────────────────
 #  Quick self-test
+# ─────────────────────────────────────────────
+
 if __name__ == "__main__":
     from sc_utils import (
         small_exact_instance, random_instance,
