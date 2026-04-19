@@ -19,7 +19,26 @@ We're building a system that tackles two classic NP-hard problems — **Travelli
 
 ## Project Structure
 
-> to be updated
+```
+NP-AA/
+├── README.md
+├── requirements.txt
+│
+├── tsp/
+│   ├── brute_force.py          # Exact TSP via permutations (tiny inputs, ≤10 nodes)
+│   ├── dp_bitmask.py           # Exact TSP via DP + bitmask (small inputs, ≤20 nodes)
+│   ├── nearest_neighbor.py     # Approximation: Nearest Neighbor heuristic
+│   ├── christofides.py         # Advanced: Christofides algorithm (bonus)
+│   └── tsp_utils.py            # Distance matrix generators, TSPLIB parser
+│
+├── sc/
+│   ├── exact_backtracking.py   # Exact Set Cover via backtracking
+│   ├── greedy_approx.py        # Greedy approximation (ln(n) bound)
+│   └── sc_utils.py             # Random instance generators
+│
+└── results/
+    └── (auto-generated CSVs and plots go here)
+```
 
 
 ## Algorithms We're Implementing
