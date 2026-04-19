@@ -23,6 +23,8 @@ We're building a system that tackles two classic NP-hard problems — **Travelli
 NP-AA/
 ├── README.md
 ├── requirements.txt
+├── app.py                      # Streamlit app for web-based results
+├── .gitignore
 │
 ├── tsp/
 │   ├── brute_force.py          # Exact TSP via permutations (tiny inputs, ≤10 nodes)
@@ -36,8 +38,16 @@ NP-AA/
 │   ├── greedy_approx.py        # Greedy approximation (ln(n) bound)
 │   └── sc_utils.py             # Random instance generators
 │
+├── plots/
+│   ├── sc.py                   # csv to plots for Set Cover
+│   ├── tsp.py                  # csv to plots for TSP
+│   ├── sc/
+│   │   └── (auto-generated plots go here)
+│   └── tsp/
+│       └── (auto-generated plots go here)
+│
 └── results/
-    └── (auto-generated CSVs and plots go here)
+    └── (auto-generated CSVs go here)
 ```
 
 
