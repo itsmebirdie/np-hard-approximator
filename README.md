@@ -100,7 +100,15 @@ Approximation Ratio = (Cost of Approximate Solution) / (Cost of Optimal Solution
 
 ## Tech Stack
 
-TBA
+- **Language:** Python 3.10+
+- **Libraries:** `itertools`, `numpy`, `matplotlib`, `time`, `csv`, `streamlit`, `plotly`, `pandas`, `networkx`
+- **Optional:** `networkx` for graph visualization, `scipy` for MST in Christofides
+- **Version Control:** Git + GitHub (public repo)
+- **Dataset Source:** TSPLIB — http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Starter Code Reference
 
