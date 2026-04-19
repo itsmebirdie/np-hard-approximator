@@ -51,7 +51,20 @@ NP-AA/
 
 | Algorithm | Type | Time Complexity | Feasible Up To |
 |---|---|---|---|
-| TBA | TBA | TBA | TBA |
+| Brute Force | Exact | O(n!) | ~10 nodes |
+| DP + Bitmask (Held-Karp) | Exact | O(n² × 2ⁿ) | ~20 nodes |
+| Nearest Neighbor | Approximation | O(n²) | 1000+ nodes |
+| Christofides | Approximation | O(n³) | 500+ nodes (bonus) |
+
+**Held-Karp DP (the one to actually implement well):**  
+- State: `dp[mask][i]` = minimum cost to reach city `i` having visited the set of cities encoded in `mask`  
+- Transition: `dp[mask][i] = min over all j in mask: dp[mask ^ (1<<i)][j] + dist[j][i]`  
+- Base case: `dp[1][0] = 0` (start at city 0)  
+- Answer: `min over i: dp[(1<<n)-1][i] + dist[i][0]`
+
+**Nearest Neighbor Heuristic:**  
+- Start at city 0. At each step, go to the nearest unvisited city. Repeat until all visited. Return to start.  
+- Approximation ratio: No guaranteed bound in general, but in practice gives ~20–25% above optimal.
 
 
 ### Set Cover
@@ -62,8 +75,13 @@ NP-AA/
 
 | Algorithm | Type | Time Complexity | Approximation Ratio |
 |---|---|---|---|
-| TBA | TBA | TBA | TBA |
+| Backtracking (exact) | Exact | Exponential | Optimal (1.0) |
+| Greedy | Approximation | O(n × \|S\|) | H(n) ≈ ln(n) + 1 |
 
+**Greedy Set Cover:**  
+- Repeatedly pick the subset that covers the most currently uncovered elements.  
+- The approximation ratio is `H(n)` where `H(n)` is the n-th harmonic number (~ln(n)).  
+- This is actually the best possible polynomial approximation unless P = NP.
 
 
 ## How to Compute Approximation Ratio
@@ -76,7 +94,7 @@ Approximation Ratio = (Cost of Approximate Solution) / (Cost of Optimal Solution
 
 - A ratio of **1.0** means the approximation found the optimal solution.  
 - A ratio of **1.5** means the approximate solution is 50% worse than optimal.  
-- For TSP Nearest Neighbor, you'll typically see ratios between 1.1 and 1.4 on random instances.  
+- For TSP Nearest Neighbor, we'll typically see ratios between 1.1 and 1.4 on random instances.  
 - For Greedy Set Cover, the theoretical upper bound is `ln(n) + 1`, but in practice it's usually much better.
 
 
