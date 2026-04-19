@@ -171,4 +171,6 @@ def tsp_dp(dist):
 
 | Algorithm | Problem | Theoretical Bound | Typical Observed |
 |---|---|---|---|
-| TBA | TBA | TBA | TBA |
+| Nearest Neighbor | TSP | No constant bound | 1.1 – 1.4× |
+| Christofides | Metric TSP | 1.5× | 1.1 – 1.3× |
+| Greedy | Set Cover | H(n) ≈ ln(n) + 1 | Often 1.0 – 2.0× |
