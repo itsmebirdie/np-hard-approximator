@@ -1,10 +1,5 @@
 # NP-AA – NP-Hard Problem Solver & Approximation Analyzer
 
-⚠️ THESE BENCHMARKS WERE TESTED ON A SPECIFIC HARDWARE DESCRIBED BELOW \
-Intel i7-14700HX \
-RTX5060 8GB \
-32GB DDR5 RAM
-
 
 ## What This Project Is About
 
