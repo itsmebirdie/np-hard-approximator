@@ -12,8 +12,8 @@ We're building a system that tackles two classic NP-hard problems — **Travelli
 NP-AA/
 ├── README.md
 ├── requirements.txt
-├── app.py                      # Streamlit app for web-based results
 ├── .gitignore
+├── app.py                      # Streamlit app for web-based results
 │
 ├── tsp/
 │   ├── brute_force.py          # Exact TSP via permutations (tiny inputs, ≤10 nodes)
